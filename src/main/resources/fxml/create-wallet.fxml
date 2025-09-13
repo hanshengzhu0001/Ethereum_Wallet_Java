@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ethereum.wallet.ui.controller.CreateWalletController" spacing="15.0" prefWidth="400.0" prefHeight="300.0">
+   <children>
+      <Label styleClass="dialog-header" text="Create New Wallet" />
+      
+      <VBox spacing="10.0">
+         <children>
+            <Label text="Wallet Name:" />
+            <TextField fx:id="walletNameField" promptText="Enter wallet name" />
+         </children>
+      </VBox>
+      
+      <VBox spacing="10.0">
+         <children>
+            <Label text="Password:" />
+            <PasswordField fx:id="passwordField" promptText="Enter password (min 8 characters)" />
+         </children>
+      </VBox>
+      
+      <VBox spacing="10.0">
+         <children>
+            <Label text="Confirm Password:" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm password" />
+         </children>
+      </VBox>
+      
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <ProgressIndicator fx:id="loadingIndicator" prefHeight="20.0" prefWidth="20.0" />
+            <Label fx:id="statusLabel" />
+         </children>
+      </HBox>
+      
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <children>
+            <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="createButton" mnemonicParsing="false" styleClass="primary-button" text="Create Wallet" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

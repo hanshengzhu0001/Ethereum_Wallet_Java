@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: ethereum-wallet
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ethereum_wallet
+    username: ${DB_USERNAME:ethereum_user}
+    password: ${DB_PASSWORD:ethereum_pass}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        
+  security:
+    user:
+      name: admin
+      password: ${ADMIN_PASSWORD:admin123}
+
+server:
+  port: 8080
+  
+ethereum:
+  network:
+    name: sepolia
+    chain-id: 11155111
+    infura:
+      project-id: ${INFURA_PROJECT_ID:your-infura-project-id}
+      project-secret: ${INFURA_PROJECT_SECRET:your-infura-project-secret}
+      endpoint: https://sepolia.infura.io/v3/${INFURA_PROJECT_ID}
+  
+  gas:
+    price: 20000000000  # 20 Gwei
+    limit: 21000
+
+logging:
+  level:
+    com.ethereum.wallet: DEBUG
+    org.web3j: INFO
+    org.springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/ethereum-wallet.log
