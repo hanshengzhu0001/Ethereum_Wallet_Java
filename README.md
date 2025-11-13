@@ -28,7 +28,8 @@ A comprehensive Ethereum wallet application built with **Java**, **Spring Boot**
 - **Transaction History**: Complete audit trail of all wallet operations
 
 ### User Interfaces
-- **JavaFX Desktop GUI**: Modern, responsive desktop application
+- **React.js Web App**: Modern, responsive web application with Material-UI
+- **JavaFX Desktop GUI**: Cross-platform desktop application
 - **REST API**: Complete REST API for programmatic access
 - **Web3j Integration**: Direct interaction with Ethereum networks via Infura
 
@@ -38,7 +39,9 @@ A comprehensive Ethereum wallet application built with **Java**, **Spring Boot**
 - **Spring Boot 3.x**: Application framework and dependency injection
 - **Web3j 4.10.3**: Ethereum blockchain interaction library
 - **PostgreSQL**: Relational database for data persistence
-- **JavaFX 19**: Modern desktop GUI framework
+- **React.js 18**: Modern web frontend with TypeScript
+- **Material-UI**: Comprehensive React component library
+- **JavaFX 19**: Cross-platform desktop GUI framework
 - **Maven**: Build automation and dependency management
 - **JUnit 5**: Comprehensive unit testing framework
 - **Bouncy Castle**: Cryptographic operations and security
@@ -48,7 +51,8 @@ A comprehensive Ethereum wallet application built with **Java**, **Spring Boot**
 1. **Java Development Kit (JDK) 17 or higher**
 2. **PostgreSQL 12 or higher**
 3. **Maven 3.8 or higher**
-4. **Infura Account** (for Ethereum network access)
+4. **Node.js 16 or higher** (for React frontend)
+5. **Infura Account** (for Ethereum network access)
 
 ## 🔧 Setup Instructions
 
@@ -76,26 +80,40 @@ export ADMIN_PASSWORD=your-admin-password
 
 ### 3. Build and Run
 
-#### Option A: Desktop Application (JavaFX GUI)
+#### Option A: React Web Application (Recommended)
 
 ```bash
-# Clone and build
+# Clone and build backend
 git clone <repository-url>
 cd Ethereum_Wallet_Java
 mvn clean install
 
+# Start backend server
+mvn spring-boot:run
+
+# In a new terminal, start React frontend
+cd frontend
+npm install
+npm start
+```
+
+The web application will be available at `http://localhost:3000`
+
+#### Option B: Desktop Application (JavaFX GUI)
+
+```bash
 # Run JavaFX application
 mvn javafx:run
 ```
 
-#### Option B: Server Mode (REST API only)
+#### Option C: Server Mode (REST API only)
 
 ```bash
 # Run in headless mode
 java -Djava.awt.headless=true -Dethereum.wallet.mode=headless -jar target/ethereum-wallet-1.0.0.jar
 ```
 
-#### Option C: Development Mode
+#### Option D: Development Mode
 
 ```bash
 # Run with Spring Boot Maven plugin
@@ -201,6 +219,33 @@ Content-Type: application/json
   "password": "securePassword123"
 }
 ```
+
+## 🌐 Web Application Usage
+
+### Dashboard
+- **Portfolio Overview**: View total balance across all wallets
+- **Recent Activity**: Latest transactions and contract interactions
+- **Quick Stats**: Wallet count, pending transactions, and network status
+- **Real-time Updates**: Automatic refresh of balances and transaction status
+
+### Wallet Management
+1. **Create Wallet**: Generate new wallet with secure password
+2. **Import Wallet**: Import from private key or mnemonic phrase
+3. **Send ETH**: Transfer ETH with custom gas settings
+4. **View Details**: Balance, address, and transaction history
+5. **Export Keys**: Secure private key export with password verification
+
+### Transaction History
+- **Filter & Search**: Filter by wallet, status, or search by hash/address
+- **Pagination**: Navigate through transaction history
+- **Etherscan Links**: Direct links to view transactions on blockchain explorer
+- **Real-time Status**: Live updates of transaction confirmations
+
+### Smart Contract Interactions
+- **ERC-20 Support**: Built-in templates for common token functions
+- **Custom Calls**: Execute any contract function with parameters
+- **Gas Estimation**: Automatic gas limit estimation
+- **Interaction History**: Track all contract interactions
 
 ## 🖥 Desktop Application Usage
 

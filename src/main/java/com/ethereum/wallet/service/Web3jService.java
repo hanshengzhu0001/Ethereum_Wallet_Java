@@ -253,3 +253,4 @@ public class Web3jService {
         return ethereumProperties.getChainId();
     }
 }
+
